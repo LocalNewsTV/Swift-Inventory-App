@@ -11,7 +11,8 @@ struct ContentView: View {
     @State private var description = "Hello Friend"
     var body: some View {
         VStack {
-            Image(systemName: "ladybug")
+            Image(systemName: "light.recessed")
+                .resizable(resizingMode: .stretch)
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             TextEditor(text: $description)
