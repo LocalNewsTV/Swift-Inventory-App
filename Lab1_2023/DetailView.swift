@@ -10,17 +10,30 @@ import SwiftUI
 struct DetailView: View {
     @State private var description = "Hello Friend"
     @State private var favourite = false
+    var colour: Color
     var body: some View {
         VStack {
             Image(systemName: "light.recessed")
                 .resizable(resizingMode: .stretch)
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-                .background(favourite ? Color.yellow : Color.white)
+                .background(favourite ? colour : Color.white)
             Toggle(isOn: $favourite) {
                 Text("Favourite")
             }
-            TextEditor(text: $description)
+            TextEditor(text: Binding(
+                get: {
+                    description
+                },
+                set: {
+                    newValue in
+                    if newValue.count <= 150 {
+                        description = newValue
+                    }
+                }
+                )
+            )
+            Text(String(description.count))
         }
         .padding()
     }
@@ -28,6 +41,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView()
+        DetailView(colour: Color.yellow)
     }
 }

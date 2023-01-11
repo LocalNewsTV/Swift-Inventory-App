@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @State private var colour = Color.yellow
+    @Binding var colour: Color
     var body: some View {
         ColorPicker("Background", selection: $colour).padding()
     }
 }
 
-struct SettingsView_Previews: PreviewProvider {
+struct SettingsView_Previews:
+PreviewProvider {
+    @State static var colour = Color.yellow
     static var previews: some View {
-        SettingsView()
+        SettingsView(colour: $colour)
     }
 }
