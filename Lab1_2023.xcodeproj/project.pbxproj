@@ -8,12 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		F3ED3DC3296F690D00A371FD /* Lab1_2023App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DC2296F690D00A371FD /* Lab1_2023App.swift */; };
-		F3ED3DC5296F690D00A371FD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DC4296F690D00A371FD /* ContentView.swift */; };
+		F3ED3DC5296F690D00A371FD /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DC4296F690D00A371FD /* DetailView.swift */; };
 		F3ED3DC7296F690E00A371FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3ED3DC6296F690E00A371FD /* Assets.xcassets */; };
 		F3ED3DCA296F690E00A371FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3ED3DC9296F690E00A371FD /* Preview Assets.xcassets */; };
 		F3ED3DD4296F690F00A371FD /* Lab1_2023Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DD3296F690F00A371FD /* Lab1_2023Tests.swift */; };
 		F3ED3DDE296F690F00A371FD /* Lab1_2023UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DDD296F690F00A371FD /* Lab1_2023UITests.swift */; };
 		F3ED3DE0296F690F00A371FD /* Lab1_2023UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DDF296F690F00A371FD /* Lab1_2023UITestsLaunchTests.swift */; };
+		F3ED3DED296F781800A371FD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DEC296F781800A371FD /* MainView.swift */; };
+		F3ED3DEE296F781800A371FD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DEC296F781800A371FD /* MainView.swift */; };
+		F3ED3DEF296F781800A371FD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DEC296F781800A371FD /* MainView.swift */; };
+		F3ED3DF1296F783B00A371FD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DF0296F783B00A371FD /* SettingsView.swift */; };
+		F3ED3DF2296F783B00A371FD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DF0296F783B00A371FD /* SettingsView.swift */; };
+		F3ED3DF3296F783B00A371FD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DF0296F783B00A371FD /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +42,7 @@
 /* Begin PBXFileReference section */
 		F3ED3DBF296F690D00A371FD /* Lab1_2023.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lab1_2023.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3ED3DC2296F690D00A371FD /* Lab1_2023App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab1_2023App.swift; sourceTree = "<group>"; };
-		F3ED3DC4296F690D00A371FD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F3ED3DC4296F690D00A371FD /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		F3ED3DC6296F690E00A371FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3ED3DC9296F690E00A371FD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F3ED3DCF296F690F00A371FD /* Lab1_2023Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Lab1_2023Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +50,8 @@
 		F3ED3DD9296F690F00A371FD /* Lab1_2023UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Lab1_2023UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3ED3DDD296F690F00A371FD /* Lab1_2023UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab1_2023UITests.swift; sourceTree = "<group>"; };
 		F3ED3DDF296F690F00A371FD /* Lab1_2023UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab1_2023UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F3ED3DEC296F781800A371FD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		F3ED3DF0296F783B00A371FD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +103,9 @@
 			isa = PBXGroup;
 			children = (
 				F3ED3DC2296F690D00A371FD /* Lab1_2023App.swift */,
-				F3ED3DC4296F690D00A371FD /* ContentView.swift */,
+				F3ED3DC4296F690D00A371FD /* DetailView.swift */,
+				F3ED3DEC296F781800A371FD /* MainView.swift */,
+				F3ED3DF0296F783B00A371FD /* SettingsView.swift */,
 				F3ED3DC6296F690E00A371FD /* Assets.xcassets */,
 				F3ED3DC8296F690E00A371FD /* Preview Content */,
 			);
@@ -257,7 +267,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3ED3DC5296F690D00A371FD /* ContentView.swift in Sources */,
+				F3ED3DC5296F690D00A371FD /* DetailView.swift in Sources */,
+				F3ED3DF1296F783B00A371FD /* SettingsView.swift in Sources */,
+				F3ED3DED296F781800A371FD /* MainView.swift in Sources */,
 				F3ED3DC3296F690D00A371FD /* Lab1_2023App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,7 +278,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3ED3DF2296F783B00A371FD /* SettingsView.swift in Sources */,
 				F3ED3DD4296F690F00A371FD /* Lab1_2023Tests.swift in Sources */,
+				F3ED3DEE296F781800A371FD /* MainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +289,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3ED3DDE296F690F00A371FD /* Lab1_2023UITests.swift in Sources */,
+				F3ED3DF3296F783B00A371FD /* SettingsView.swift in Sources */,
+				F3ED3DEF296F781800A371FD /* MainView.swift in Sources */,
 				F3ED3DE0296F690F00A371FD /* Lab1_2023UITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
