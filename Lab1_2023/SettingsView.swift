@@ -9,8 +9,23 @@ import SwiftUI
 
 struct SettingsView: View {
     @Binding var colour: Color
+    @State var value = 0
+    func incrementStep() {
+        value += 10
+        if value >= 150{
+            value = 150
+        }
+    }
+
+    func decrementStep() {
+        value -= 10
+        if value < 0 { value = 0 }
+    }
     var body: some View {
         ColorPicker("Background", selection: $colour).padding()
+        Stepper(value: $value, in: 0...150) {
+            Text("\(value)")
+        }
     }
 }
 
