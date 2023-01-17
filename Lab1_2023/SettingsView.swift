@@ -9,30 +9,27 @@ import SwiftUI
 
 struct SettingsView: View {
     @Binding var colour: Color
-    @State var value = 0
-    func incrementStep() {
-        value += 10
-        if value >= 150{
-            value = 150
-        }
-    }
-
-    func decrementStep() {
-        value -= 10
-        if value < 0 { value = 0 }
-    }
+    @Binding var charLimit: Int
+    let maxCharRange = 300
+    let minCharRange = 0
     var body: some View {
-        ColorPicker("Background", selection: $colour).padding()
-        Stepper(value: $value, in: 0...150) {
-            Text("\(value)")
+        let range = minCharRange...maxCharRange
+        VStack {
+            ColorPicker("Background", selection: $colour).padding(.leading, 45).padding(.trailing, 45)
+            Stepper(value: $charLimit, in: range, step: 10) {
+                Text("Value: \(charLimit)")
+            }
+            .padding(.leading, 45).padding(.trailing, 45)
         }
     }
-}
-
-struct SettingsView_Previews:
-PreviewProvider {
-    @State static var colour = Color.yellow
-    static var previews: some View {
-        SettingsView(colour: $colour)
+    
+    struct SettingsView_Previews: PreviewProvider {
+        @State static var colour = Color.yellow
+        @State static var charLimit = 150
+        //@State static var value =
+        static var previews: some View {
+            SettingsView(colour: $colour, charLimit: $charLimit)
+        }
     }
+    
 }

@@ -11,6 +11,7 @@ struct DetailView: View {
     @State private var description = "Hello Friend"
     @State private var favourite = false
     var colour: Color
+    var charLimit: Int
     var body: some View {
         VStack {
             Image(systemName: "light.recessed")
@@ -27,20 +28,21 @@ struct DetailView: View {
                 },
                 set: {
                     newValue in
-                    if newValue.count <= 150 {
+                    if newValue.count <= charLimit {
                         description = newValue
                     }
                 }
                 )
             )
-            Text(String(description.count))
+            Text(String("\(description.count)/\(charLimit)"))
         }
         .padding()
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
+    static let defaultColor = Color.yellow
     static var previews: some View {
-        DetailView(colour: Color.yellow)
+        DetailView(colour: defaultColor, charLimit: 150)
     }
 }

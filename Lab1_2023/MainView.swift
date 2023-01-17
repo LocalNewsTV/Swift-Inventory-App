@@ -10,13 +10,14 @@ import SwiftUI
 struct MainView: View {
     @State private var showSettings = false
     @State var colour = Color.yellow
+    @State var charLimit = 150
     var body: some View {
         NavigationStack() {
             VStack {
                 if showSettings {
-                    SettingsView(colour: $colour)
+                    SettingsView(colour: $colour, charLimit: $charLimit)
                 } else {
-                    DetailView(colour: colour)
+                    DetailView(colour: colour, charLimit: charLimit)
                 }
             }
             .navigationBarItems(
