@@ -25,6 +25,7 @@ struct SettingsView: View {
     @Binding var charLimit: Int
     let maxCharRange = 300
     let minCharRange = 0
+    let stepSize = 10
     var body: some View {
         let range = minCharRange...maxCharRange
         VStack {
@@ -45,7 +46,7 @@ struct SettingsView: View {
                         charLimit = newValue
                         UserDefaults.standard.set(charLimit, forKey: "MaxCharacterCount")
                     })
-                        , in: range, step: 10) {
+                        , in: range, step: stepSize) {
                 Text("Value: \(charLimit)")
             }
             .padding(.leading, 45).padding(.trailing, 45)
