@@ -10,7 +10,7 @@ import SwiftUI
 struct MainView: View {
     @State private var showSettings = false
     @State var colour = array2color(array: UserDefaults.standard.object(forKey: "BackgroundColour") as? [CGFloat] ?? color2array(colour: Color.yellow))
-    @State var charLimit = UserDefaults.standard.object(forKey: "MaxCharacterCount") as? Int ?? 100
+    @State var charLimit = UserDefaults.standard.object(forKey: "MaxCharacterCount") as? Int ?? 150
     var body: some View {
         NavigationStack() {
             VStack {
@@ -23,13 +23,10 @@ struct MainView: View {
             .navigationBarItems(
                 trailing:
             Button(
-                action: {
-                    showSettings.toggle()
-                },
-                label: {
-                    Image(systemName: showSettings ? "house" : "gear")
-                }
-                )
+                action: { showSettings.toggle() },
+                label: { Image(systemName: showSettings ? "house" : "gear") }
+            )
+            .accessibilityIdentifier("NavigationButton")
             )
         }
     }

@@ -13,13 +13,16 @@
 		F3ED3DCA296F690E00A371FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3ED3DC9296F690E00A371FD /* Preview Assets.xcassets */; };
 		F3ED3DD4296F690F00A371FD /* Lab1_2023Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DD3296F690F00A371FD /* Lab1_2023Tests.swift */; };
 		F3ED3DDE296F690F00A371FD /* Lab1_2023UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DDD296F690F00A371FD /* Lab1_2023UITests.swift */; };
-		F3ED3DE0296F690F00A371FD /* Lab1_2023UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DDF296F690F00A371FD /* Lab1_2023UITestsLaunchTests.swift */; };
 		F3ED3DED296F781800A371FD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DEC296F781800A371FD /* MainView.swift */; };
 		F3ED3DEE296F781800A371FD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DEC296F781800A371FD /* MainView.swift */; };
 		F3ED3DEF296F781800A371FD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DEC296F781800A371FD /* MainView.swift */; };
 		F3ED3DF1296F783B00A371FD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DF0296F783B00A371FD /* SettingsView.swift */; };
 		F3ED3DF2296F783B00A371FD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DF0296F783B00A371FD /* SettingsView.swift */; };
 		F3ED3DF3296F783B00A371FD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DF0296F783B00A371FD /* SettingsView.swift */; };
+		F3FEC8112978F11400F2E6A3 /* Lab1_2023App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DC2296F690D00A371FD /* Lab1_2023App.swift */; };
+		F3FEC8122978F11400F2E6A3 /* Lab1_2023App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DC2296F690D00A371FD /* Lab1_2023App.swift */; };
+		F3FEC8132978F12500F2E6A3 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DC4296F690D00A371FD /* DetailView.swift */; };
+		F3FEC8142978F12500F2E6A3 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DC4296F690D00A371FD /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +52,6 @@
 		F3ED3DD3296F690F00A371FD /* Lab1_2023Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab1_2023Tests.swift; sourceTree = "<group>"; };
 		F3ED3DD9296F690F00A371FD /* Lab1_2023UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Lab1_2023UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3ED3DDD296F690F00A371FD /* Lab1_2023UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab1_2023UITests.swift; sourceTree = "<group>"; };
-		F3ED3DDF296F690F00A371FD /* Lab1_2023UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab1_2023UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F3ED3DEC296F781800A371FD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		F3ED3DF0296F783B00A371FD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				F3ED3DDD296F690F00A371FD /* Lab1_2023UITests.swift */,
-				F3ED3DDF296F690F00A371FD /* Lab1_2023UITestsLaunchTests.swift */,
 			);
 			path = Lab1_2023UITests;
 			sourceTree = "<group>";
@@ -278,8 +279,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3FEC8112978F11400F2E6A3 /* Lab1_2023App.swift in Sources */,
 				F3ED3DF2296F783B00A371FD /* SettingsView.swift in Sources */,
 				F3ED3DD4296F690F00A371FD /* Lab1_2023Tests.swift in Sources */,
+				F3FEC8132978F12500F2E6A3 /* DetailView.swift in Sources */,
 				F3ED3DEE296F781800A371FD /* MainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,9 +292,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3ED3DDE296F690F00A371FD /* Lab1_2023UITests.swift in Sources */,
+				F3FEC8142978F12500F2E6A3 /* DetailView.swift in Sources */,
 				F3ED3DF3296F783B00A371FD /* SettingsView.swift in Sources */,
+				F3FEC8122978F11400F2E6A3 /* Lab1_2023App.swift in Sources */,
 				F3ED3DEF296F781800A371FD /* MainView.swift in Sources */,
-				F3ED3DE0296F690F00A371FD /* Lab1_2023UITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

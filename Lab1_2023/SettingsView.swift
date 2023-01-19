@@ -24,7 +24,7 @@ struct SettingsView: View {
     @Binding var colour: Color
     @Binding var charLimit: Int
     let maxCharRange = 300
-    let minCharRange = 0
+    let minCharRange = 10
     var body: some View {
         let range = minCharRange...maxCharRange
         VStack {
@@ -36,7 +36,10 @@ struct SettingsView: View {
                     colour = newValue
                     UserDefaults.standard.set(color2array(colour: colour), forKey: "BackgroundColour")
                 }
-            )).padding(.leading, 45).padding(.trailing, 45)
+            ))
+            .padding(.leading, 45)
+            .padding(.trailing, 45)
+            .accessibilityIdentifier("BackgroundColorPicker")
             Stepper(value: Binding(
                     get: {
                         charLimit
@@ -45,10 +48,14 @@ struct SettingsView: View {
                         charLimit = newValue
                         UserDefaults.standard.set(charLimit, forKey: "MaxCharacterCount")
                     })
-                        , in: range, step: 10) {
+                        , in: range, step: 10)
+            {
                 Text("Value: \(charLimit)")
+                .accessibilityLabel("StepperSettingsText")
+                
             }
             .padding(.leading, 45).padding(.trailing, 45)
+            .accessibilityIdentifier("MaxCountStepper")
         }
     }
     
