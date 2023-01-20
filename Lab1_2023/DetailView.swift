@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailView: View {
-    @State private var description = "Hello Friend"
+    @State private var description = ""
     @State private var favourite = false
     var colour: Color
     var charLimit: Int
@@ -19,10 +19,12 @@ struct DetailView: View {
                 .resizable(resizingMode: .stretch)
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-                .background(favourite ? colour : defaultColor)
+                .background(favourite ? colour : Color.white)
+                .accessibilityIdentifier("DetailImage")
             Toggle(isOn: $favourite) {
                 Text("Favourite")
             }
+            .accessibilityIdentifier("FavouriteToggle")
             TextEditor(text: Binding(
                 get: {
                     description
@@ -35,7 +37,9 @@ struct DetailView: View {
                 }
                 )
             )
+            .accessibilityIdentifier("DetailTextEditor")
             Text(String("\(description.count)/\(charLimit)"))
+            .accessibilityIdentifier("DetailText")
         }
         .padding()
     }

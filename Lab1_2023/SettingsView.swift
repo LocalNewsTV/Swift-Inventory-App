@@ -37,7 +37,10 @@ struct SettingsView: View {
                     colour = newValue
                     UserDefaults.standard.set(color2array(colour: colour), forKey: "BackgroundColour")
                 }
-            )).padding(.leading, 45).padding(.trailing, 45)
+            ))
+            .padding(.leading, 45)
+            .padding(.trailing, 45)
+            .accessibilityIdentifier("BackgroundColorPicker")
             Stepper(value: Binding(
                     get: {
                         charLimit
@@ -48,8 +51,11 @@ struct SettingsView: View {
                     })
                         , in: range, step: stepSize) {
                 Text("Value: \(charLimit)")
+                .accessibilityLabel("StepperSettingsText")
+                
             }
             .padding(.leading, 45).padding(.trailing, 45)
+            .accessibilityIdentifier("MaxCountStepper")
         }
     }
     
