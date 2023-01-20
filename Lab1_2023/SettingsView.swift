@@ -24,7 +24,7 @@ struct SettingsView: View {
     @Binding var colour: Color
     @Binding var charLimit: Int
     let maxCharRange = 300
-    let minCharRange = 0
+    let minCharRange = 10
     let stepSize = 10
     var body: some View {
         let range = minCharRange...maxCharRange
@@ -51,7 +51,6 @@ struct SettingsView: View {
                     })
                         , in: range, step: stepSize) {
                 Text("Value: \(charLimit)")
-                .accessibilityLabel("StepperSettingsText")
                 
             }
             .padding(.leading, 45).padding(.trailing, 45)

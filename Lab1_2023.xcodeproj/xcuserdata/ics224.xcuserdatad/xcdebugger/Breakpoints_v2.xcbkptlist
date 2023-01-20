@@ -7,17 +7,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CCED8F95-8F0A-435C-A0D9-65BDEFF95750"
-            shouldBeEnabled = "Yes"
+            uuid = "CB249E29-31C3-4834-ABFE-F216CA2F9F25"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Lab1_2023/SettingsView.swift"
+            filePath = "Lab1_2023UITests/Lab1_2023UITests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "10"
-            endingLineNumber = "10"
-            landmarkName = "color2array(colour:)"
-            landmarkType = "9">
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "testStepperFunctionality()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EBFC90F2-4598-46BF-8210-ED7198557C94"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Lab1_2023UITests/Lab1_2023UITests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "testStepperFunctionality()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

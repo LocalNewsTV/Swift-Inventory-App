@@ -75,9 +75,10 @@ final class Lab1_2023UITests: XCTestCase {
         
         //toggle into settings and bring attempt bringing stepper below minimum value
         settingsToggle.tap()
-        for _ in 0...31{
+        while app.steppers["MaxCountStepper"].label != "Value: 10"{
             app.steppers["MaxCountStepper"].buttons["Decrement"].tap()
         }
+        app.steppers["MaxCountStepper"].buttons["Decrement"].tap()
         settingsToggle.tap()
         XCTAssertEqual(detailText.label, "0/10")
         
@@ -93,15 +94,17 @@ final class Lab1_2023UITests: XCTestCase {
         settingsToggle.tap()
     
         //attempt to bring stepper above maxiumum value
-        for _ in 0...31{
+        while app.steppers["MaxCountStepper"].label != "Value: 300"{
+            print(app.steppers["MaxCountStepper"].label)
             app.steppers["MaxCountStepper"].buttons["Increment"].tap()
         }
+        app.steppers["MaxCountStepper"].buttons["Increment"].tap()
         settingsToggle.tap()
         XCTAssertEqual(detailText.label, "0/300")
         settingsToggle.tap()
         
         //Bring stepper back to 150
-        for _ in 0...14{
+        while app.steppers["MaxCountStepper"].label != "Value: 150"{
             app.steppers["MaxCountStepper"].buttons["Decrement"].tap()
         }
         settingsToggle.tap()
