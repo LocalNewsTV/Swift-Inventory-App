@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
+    @EnvironmentObject var inventoryItems: InventoryItems
     @State private var showSettings = false
     @State var colour = array2color(array: UserDefaults.standard.object(forKey: "BackgroundColour") as? [CGFloat] ?? color2array(colour: Color.yellow))
     @State var charLimit = UserDefaults.standard.object(forKey: "MaxCharacterCount") as? Int ?? 150
@@ -18,12 +19,12 @@ struct MainView: View {
                 if showSettings {
                     SettingsView(colour: $colour, charLimit: $charLimit)
                 } else {
-                    if sizeClass == .regular {
-                        DetailView(colour: colour, charLimit: charLimit)
-                            .frame(width: 320, height: 460, alignment: .center)
-                    }
-                    else if sizeClass == .compact {
-                        DetailView(colour: colour, charLimit: charLimit)
+                    List($inventoryItems.entries) {
+                        $inventoryItem in
+                        NavigationLink(
+                            destination: DetailView(colour: colour, charLimit: charLimit)){
+                                RowView(inventoryItem: inventoryItem)
+                            }
                     }
                 }
             }
@@ -45,7 +46,7 @@ struct MainView_Previews: PreviewProvider {
         ForEach(["iPad (10th generation)", "iPhone 14 Pro"], id: \.self) {
             deviceName in
             MainView()
-                .previewDevice(PreviewDevice(rawValue: deviceName))
+                .previewDevice(PreviewDevice(rawValue: deviceName)).environmentObject(InventoryItems())
         }
     }
 }
