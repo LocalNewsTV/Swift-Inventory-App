@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RowView: View {
-    var inventoryItem: InventoryItem
+    @State var inventoryItem: InventoryItem
     var body: some View {
         HStack {
             Image(systemName: inventoryItem.image)

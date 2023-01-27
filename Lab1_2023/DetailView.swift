@@ -8,19 +8,18 @@
 import SwiftUI
 
 struct DetailView: View {
-    @State private var description = ""
     @State private var favourite = false
 
     var colour: Color
     var charLimit: Int
-    var inventoryItem: InventoryItem
+    @Binding var inventoryItem: InventoryItem
     var body: some View {
 //        let defaultColor = Color.white
         VStack {
             Image(systemName: inventoryItem.image)
                 .resizable(resizingMode: .stretch)
                 .imageScale(.large)
-                .foregroundColor(.accentColor)
+                .foregroundColor(.purple) //originally .accentColor
                 .background(favourite ? colour : Color.white)
                 .accessibilityIdentifier("DetailImage")
             Toggle(isOn: $favourite) {
@@ -34,13 +33,13 @@ struct DetailView: View {
                 set: {
                     newValue in
                     if newValue.count <= charLimit {
-                        description = newValue
+                        inventoryItem.description = newValue
                     }
                 }
                 )
             )
             .accessibilityIdentifier("DetailTextEditor")
-            Text(String("\(description.count)/\(charLimit)"))
+            Text(String("\(inventoryItem.description.count)/\(charLimit)"))
             .accessibilityIdentifier("DetailText")
         }
         .padding()
@@ -48,9 +47,12 @@ struct DetailView: View {
 }
 
 struct DetailView_Previews: PreviewProvider {
+    @State var inventoryItems: InventoryItems
     static let defaultColor = Color.yellow
-    static let inventoryItem = InventoryItem(image: "hare", description: "Hare")
+//    @State static var inventoryItem: InventoryItem
+    @State static var inventoryItem = InventoryItem(image: "hare", description: "Hare")
+    @State static var favourite: Bool = false
     static var previews: some View {
-        DetailView(colour: defaultColor, charLimit: 150, inventoryItem: inventoryItem)
+        DetailView(colour: defaultColor, charLimit: 150, inventoryItem: $inventoryItem)
     }
 }
