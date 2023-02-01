@@ -158,6 +158,15 @@ final class Lab1_2023UITests: XCTestCase {
         XCTAssertEqual(app.collectionViews.buttons.count, 3)
         add.tap()
         XCTAssertEqual(app.collectionViews.buttons.count, 4)
-        
+    }
+    func testDeleteItem(){
+        let app = XCUIApplication()
+        app.launch()
+        let initCollectionCount = app.collectionViews.buttons.count
+        app.collectionViews.buttons.firstMatch.swipeLeft(velocity: .slow)
+
+        app.collectionViews.buttons["Delete"].tap()
+        print("\(initCollectionCount), \(app.collectionViews.buttons.count) Lookie")
+        XCTAssertEqual(app.collectionViews.buttons.count, initCollectionCount-1)
     }
 }

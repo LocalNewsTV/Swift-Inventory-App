@@ -26,6 +26,13 @@ struct MainView: View {
                             destination: DetailView(colour: colour, charLimit: charLimit, inventoryItem: $inventoryItem)){
                                 RowView(inventoryItem: inventoryItem, colour: colour)
                             }
+                            .swipeActions(edge: .trailing) {
+                                Button(role: .destructive) {
+                                    inventoryItems.entries.removeAll(where: { $0.id == inventoryItem.id})
+                                } label : {
+                                    Label("Delete", systemImage: "trash")
+                                }
+                            }
                     }
                 }
             }
