@@ -44,7 +44,7 @@ struct MainView: View {
                         Button(
                             action: {
                                 withAnimation {
-                                    let item = InventoryItem(image: "ladybug", description: "Ladybug", fave: false)
+                                    let item = InventoryItem(image: "ladybug", description: "Ladybug")
                                     inventoryItems.entries.insert(item, at: 0)
                                 }
                             }
@@ -71,7 +71,7 @@ struct MainView_Previews: PreviewProvider {
         ForEach(["iPad (10th generation)", "iPhone 14 Pro"], id: \.self) {
             deviceName in
             MainView()
-                .previewDevice(PreviewDevice(rawValue: deviceName)).environmentObject(InventoryItems())
+                .previewDevice(PreviewDevice(rawValue: deviceName)).environmentObject(InventoryItems(previewMode: true))
         }
     }
 }

@@ -25,6 +25,11 @@ final class Lab1_2023UITests: XCTestCase {
     func testCharCount() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        let add = app.navigationBars["Inventory"].buttons["PlusButton"]
+        if(app.collectionViews.buttons.count == 0){
+            add.tap()
+        }
         app.collectionViews.buttons.firstMatch.tap()
         let detailText = app.staticTexts["DetailText"]
         let initTextLength = app.textViews["DetailTextEditor"].value as? String
@@ -42,10 +47,22 @@ final class Lab1_2023UITests: XCTestCase {
         let keyi = app.keys["i"]
         keyi.tap()
         XCTAssertEqual(detailText.label, "\(count+2)/150")
+        //Delete all List objects
+        while(app.collectionViews.buttons.count > 0){
+            app.collectionViews.buttons.firstMatch.swipeLeft(velocity: .slow)
+            app.collectionViews.buttons["Delete"].tap()
+        }
+        XCUIDevice.shared.press(.home)
+        sleep(1)
+        app.terminate()
     }
     func testCharLimits() throws {
         let app = XCUIApplication()
         app.launch()
+        let add = app.navigationBars["Inventory"].buttons["PlusButton"]
+        if(app.collectionViews.buttons.count == 0){
+            add.tap()
+        }
         app.collectionViews.buttons.firstMatch.tap()
         let initTextLength = app.textViews["DetailTextEditor"].value as? String
         let count = initTextLength!.count
@@ -67,6 +84,14 @@ final class Lab1_2023UITests: XCTestCase {
         detailTextEditor.typeText(manyY)
         XCTAssertTrue(detailText.waitForExistence(timeout: 5))
         XCTAssertEqual(detailText.label, "150/150")
+        //Delete all List objects
+        while(app.collectionViews.buttons.count > 0){
+            app.collectionViews.buttons.firstMatch.swipeLeft(velocity: .slow)
+            app.collectionViews.buttons["Delete"].tap()
+        }
+        XCUIDevice.shared.press(.home)
+        sleep(1)
+        app.terminate()
     }
     func testStepperFunctionality() throws {
         //Grab all relevent component references
@@ -79,6 +104,10 @@ final class Lab1_2023UITests: XCTestCase {
         
         app.launch()
         
+        let add = app.navigationBars["Inventory"].buttons["PlusButton"]
+        while(app.collectionViews.buttons.count < 1){
+            add.tap()
+        }
         //toggle into settings and bring attempt bringing stepper below minimum value
         settingsToggle.tap()
         while app.steppers["MaxCountStepper"].label != "Value: 10"{
@@ -86,11 +115,15 @@ final class Lab1_2023UITests: XCTestCase {
         }
         app.steppers["MaxCountStepper"].buttons["Decrement"].tap()
         settingsToggle.tap()
+        
         app.collectionViews.buttons.firstMatch.tap()
         let initTextLength = app.textViews["DetailTextEditor"].value as? String
         let count = initTextLength!.count
         XCTAssertEqual(detailText.label, "\(count)/10")
         
+        XCUIDevice.shared.press(.home)
+        sleep(1)
+        app.terminate()
         //relaunch app to verify changes remained
         app.terminate()
         app.launch()
@@ -123,15 +156,29 @@ final class Lab1_2023UITests: XCTestCase {
         settingsToggle.tap()
         app.collectionViews.buttons.firstMatch.tap()
         XCTAssertEqual(detailText.label, "10/150")
+        back.tap()
+        //Delete all List objects
+        while(app.collectionViews.buttons.count > 0){
+            app.collectionViews.buttons.firstMatch.swipeLeft(velocity: .slow)
+            app.collectionViews.buttons["Delete"].tap()
+        }
+        XCUIDevice.shared.press(.home)
+        sleep(1)
+        app.terminate()
     }
     func testFavourites(){
         let app = XCUIApplication()
         let favouriteToggle = app.switches["FavouriteToggle"]
         let back = app.buttons["Inventory"]
-        let secondEntry = app.collectionViews.buttons.element(boundBy: 1)
-        let thirdEntry = app.collectionViews.buttons.element(boundBy: 2)
+
         app.launch()
         
+        let add = app.navigationBars["Inventory"].buttons["PlusButton"]
+        while(app.collectionViews.buttons.count < 3){
+            add.tap()
+        }
+        let secondEntry = app.collectionViews.buttons.element(boundBy: 1)
+        let thirdEntry = app.collectionViews.buttons.element(boundBy: 2)
         app.collectionViews.buttons.firstMatch.tap()
         favouriteToggle.tap()
         XCTAssertEqual(favouriteToggle.value as? String, "1") // 1 == enabled
@@ -149,15 +196,31 @@ final class Lab1_2023UITests: XCTestCase {
         secondEntry.tap()
         XCTAssertEqual(favouriteToggle.value as? String, "0")
         back.tap()
+        
+        //Delete all List objects
+        while(app.collectionViews.buttons.count > 0){
+            app.collectionViews.buttons.firstMatch.swipeLeft(velocity: .slow)
+            app.collectionViews.buttons["Delete"].tap()
+        }
+        XCUIDevice.shared.press(.home)
+        sleep(1)
+        app.terminate()
     }
     func testAdditionalItems(){
         let app = XCUIApplication()
         let add = app.navigationBars["Inventory"].buttons["PlusButton"]
         app.launch()
-
-        XCTAssertEqual(app.collectionViews.buttons.count, 3)
+        let initCollectionCount = app.collectionViews.buttons.count
         add.tap()
-        XCTAssertEqual(app.collectionViews.buttons.count, 4)
+        XCTAssertEqual(app.collectionViews.buttons.count, initCollectionCount+1)
+        //Delete all List objects
+        while(app.collectionViews.buttons.count > 0){
+            app.collectionViews.buttons.firstMatch.swipeLeft(velocity: .slow)
+            app.collectionViews.buttons["Delete"].tap()
+        }
+        XCUIDevice.shared.press(.home)
+        sleep(1)
+        app.terminate()
     }
     func testDeleteItem(){
         let app = XCUIApplication()
@@ -168,5 +231,49 @@ final class Lab1_2023UITests: XCTestCase {
         app.collectionViews.buttons["Delete"].tap()
         print("\(initCollectionCount), \(app.collectionViews.buttons.count) Lookie")
         XCTAssertEqual(app.collectionViews.buttons.count, initCollectionCount-1)
+        //Delete all List objects
+        while(app.collectionViews.buttons.count > 0){
+            app.collectionViews.buttons.firstMatch.swipeLeft(velocity: .slow)
+            app.collectionViews.buttons["Delete"].tap()
+        }
+        XCUIDevice.shared.press(.home)
+        sleep(1)
+        app.terminate()
+    }
+    func testSavedFaves(){
+        let app = XCUIApplication()
+        let favouriteToggle = app.switches["FavouriteToggle"]
+        let add = app.navigationBars["Inventory"].buttons["PlusButton"]
+        let back = app.buttons["Inventory"]
+
+        app.launch()
+
+        while(app.collectionViews.buttons.count < 2){
+            add.tap()
+        }
+        let firstEntry = app.collectionViews.buttons.firstMatch
+        let secondEntry = app.collectionViews.buttons.element(boundBy: 1)
+        
+        firstEntry.tap()
+        favouriteToggle.tap()
+        XCTAssertEqual(favouriteToggle.value as? String, "1") // 1 == enabled
+        back.tap()
+
+        XCUIDevice.shared.press(.home)
+        sleep(1)
+        app.terminate()
+        app.launch()
+        
+        firstEntry.tap()
+        XCTAssertEqual(favouriteToggle.value as? String, "1") // 1 == enabled
+        back.tap()
+        //Delete all List objects
+        while(app.collectionViews.buttons.count > 0){
+            app.collectionViews.buttons.firstMatch.swipeLeft(velocity: .slow)
+            app.collectionViews.buttons["Delete"].tap()
+        }
+        XCUIDevice.shared.press(.home)
+        sleep(1)
+        app.terminate()
     }
 }

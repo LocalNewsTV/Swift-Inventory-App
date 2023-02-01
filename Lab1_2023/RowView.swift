@@ -26,7 +26,7 @@ struct RowView: View {
 }
 
 struct RowView_Previews: PreviewProvider {
-    static var inventoryItems = InventoryItems()
+    static var inventoryItems = InventoryItems(previewMode: true)
     static let defCol = Color.yellow
     static var previews: some View {
         RowView(inventoryItem: inventoryItems.entries[0], colour: defCol)

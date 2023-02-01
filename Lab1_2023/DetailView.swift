@@ -48,7 +48,7 @@ struct DetailView_Previews: PreviewProvider {
     @State var inventoryItems: InventoryItems
     static let defaultColor = Color.yellow
 //    @State static var inventoryItem: InventoryItem
-    @State static var inventoryItem = InventoryItem(image: "hare", description: "Hare", fave: false)
+    @State static var inventoryItem = InventoryItem(image: "hare", description: "Hare")
     @State static var favourite: Bool = false
     static var previews: some View {
         DetailView(colour: defaultColor, charLimit: 150, inventoryItem: $inventoryItem)

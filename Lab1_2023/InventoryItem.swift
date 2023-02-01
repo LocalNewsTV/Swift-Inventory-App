@@ -8,12 +8,12 @@
 import Foundation
 import SwiftUI
 
-struct InventoryItem: Identifiable {
-    let id = UUID()
+struct InventoryItem: Identifiable, Codable {
+    var id = UUID()
     var image: String
     var description: String
     var fave: Bool
-    init(image: String, description: String, fave: Bool) {
+    init(image: String, description: String, fave: Bool = false) {
         self.image = image
         self.description = description
         self.fave = fave
