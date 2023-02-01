@@ -25,7 +25,7 @@ final class Lab1_2023UITests: XCTestCase {
     func testCharCount() throws {
         let app = XCUIApplication()
         app.launch()
-
+        app.collectionViews.buttons.firstMatch.tap()
         let detailText = app.staticTexts["DetailText"]
         XCTAssertEqual(detailText.label, "0/150")
 

@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct MainView: View {
-    @EnvironmentObject var inventoryItems: InventoryItems
+
     @State private var showSettings = false
     @State var colour = array2color(array: UserDefaults.standard.object(forKey: "BackgroundColour") as? [CGFloat] ?? color2array(colour: Color.yellow))
     @State var charLimit = UserDefaults.standard.object(forKey: "MaxCharacterCount") as? Int ?? 150
     @Environment(\.horizontalSizeClass) var sizeClass
+    @EnvironmentObject var inventoryItems: InventoryItems
     var body: some View {
         NavigationStack() {
             VStack {
@@ -23,7 +24,7 @@ struct MainView: View {
                         $inventoryItem in
                         NavigationLink(
                             destination: DetailView(colour: colour, charLimit: charLimit, inventoryItem: $inventoryItem)){
-                                RowView(inventoryItem: inventoryItem)
+                                RowView(inventoryItem: inventoryItem, colour: colour)
                             }
                     }
                 }

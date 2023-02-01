@@ -12,8 +12,10 @@ struct InventoryItem: Identifiable {
     let id = UUID()
     var image: String
     var description: String
-    init(image: String, description: String) {
+    var fave: Bool
+    init(image: String, description: String, fave: Bool) {
         self.image = image
         self.description = description
+        self.fave = fave
     }
 }
