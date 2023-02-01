@@ -24,6 +24,10 @@
 		F3ED3DF1296F783B00A371FD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DF0296F783B00A371FD /* SettingsView.swift */; };
 		F3ED3DF2296F783B00A371FD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DF0296F783B00A371FD /* SettingsView.swift */; };
 		F3ED3DF3296F783B00A371FD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DF0296F783B00A371FD /* SettingsView.swift */; };
+		F3F7301C298A26D8004C2224 /* InventoryItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AEA83A2981EFC800E58AF4 /* InventoryItems.swift */; };
+		F3F7301D298A26D9004C2224 /* InventoryItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AEA83A2981EFC800E58AF4 /* InventoryItems.swift */; };
+		F3F7301E298A26E3004C2224 /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AEA8382981EF3700E58AF4 /* InventoryItem.swift */; };
+		F3F7301F298A26E3004C2224 /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AEA8382981EF3700E58AF4 /* InventoryItem.swift */; };
 		F3FEC8112978F11400F2E6A3 /* Lab1_2023App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DC2296F690D00A371FD /* Lab1_2023App.swift */; };
 		F3FEC8122978F11400F2E6A3 /* Lab1_2023App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DC2296F690D00A371FD /* Lab1_2023App.swift */; };
 		F3FEC8132978F12500F2E6A3 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED3DC4296F690D00A371FD /* DetailView.swift */; };
@@ -294,7 +298,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3FEC8112978F11400F2E6A3 /* Lab1_2023App.swift in Sources */,
+				F3F7301C298A26D8004C2224 /* InventoryItems.swift in Sources */,
 				F3AEA8402981F07400E58AF4 /* RowView.swift in Sources */,
+				F3F7301E298A26E3004C2224 /* InventoryItem.swift in Sources */,
 				F3ED3DF2296F783B00A371FD /* SettingsView.swift in Sources */,
 				F3ED3DD4296F690F00A371FD /* Lab1_2023Tests.swift in Sources */,
 				F3FEC8132978F12500F2E6A3 /* DetailView.swift in Sources */,
@@ -307,7 +313,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3ED3DDE296F690F00A371FD /* Lab1_2023UITests.swift in Sources */,
+				F3F7301D298A26D9004C2224 /* InventoryItems.swift in Sources */,
 				F3AEA8412981F07400E58AF4 /* RowView.swift in Sources */,
+				F3F7301F298A26E3004C2224 /* InventoryItem.swift in Sources */,
 				F3FEC8142978F12500F2E6A3 /* DetailView.swift in Sources */,
 				F3ED3DF3296F783B00A371FD /* SettingsView.swift in Sources */,
 				F3FEC8122978F11400F2E6A3 /* Lab1_2023App.swift in Sources */,
