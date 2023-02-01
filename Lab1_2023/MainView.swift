@@ -29,14 +29,31 @@ struct MainView: View {
                     }
                 }
             }
-            .navigationBarItems(
-                trailing:
-            Button(
-                action: { showSettings.toggle() },
-                label: { Image(systemName: showSettings ? "house" : "gear") }
-            )
-            .accessibilityIdentifier("NavigationButton")
-            )
+            
+            .navigationBarTitle(Text("Inventory"))
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing){
+                    if !showSettings {
+                        Button(
+                            action: {
+                                withAnimation {
+                                    let item = InventoryItem(image: "ladybug", description: "Ladybug", fave: false)
+                                    inventoryItems.entries.insert(item, at: 0)
+                                }
+                            }
+                        ) {
+                            Image(systemName: "plus")
+                        }
+                        .accessibilityIdentifier("PlusButton")
+                    }
+                }
+                ToolbarItem(placement: .bottomBar) {
+                    Button(
+                        action: { showSettings.toggle() },
+                        label: { Image(systemName: showSettings ? "house" : "gear") }
+                    )
+                    .accessibilityIdentifier("NavigationButton")
+                }}
         }
     }
 }

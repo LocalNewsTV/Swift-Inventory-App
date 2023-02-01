@@ -19,6 +19,7 @@ struct RowView: View {
                 .background(inventoryItem.fave ? colour : Color.white)
             Text(inventoryItem.description)
                 .frame(width: 200, height: 100, alignment: .leading)
+                .padding(.trailing, -15)
         }
         .padding()
     }

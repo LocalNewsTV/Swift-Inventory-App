@@ -27,26 +27,30 @@ final class Lab1_2023UITests: XCTestCase {
         app.launch()
         app.collectionViews.buttons.firstMatch.tap()
         let detailText = app.staticTexts["DetailText"]
-        XCTAssertEqual(detailText.label, "4/150")
-        
+        let initTextLength = app.textViews["DetailTextEditor"].value as? String
+        let count = initTextLength!.count
+        print("\(count) TEST")
+        XCTAssertEqual(detailText.label, "\(count)/150")
         let detailTextEditor = app.textViews["DetailTextEditor"]
         detailTextEditor.tap()
         
         let keyH = app.keys["H"]
         keyH.tap()
         XCTAssertTrue(detailText.waitForExistence(timeout: 5))
-        XCTAssertEqual(detailText.label, "5/150")
+        XCTAssertEqual(detailText.label, "\(count+1)/150")
         
         let keyi = app.keys["i"]
         keyi.tap()
-        XCTAssertEqual(detailText.label, "6/150")
+        XCTAssertEqual(detailText.label, "\(count+2)/150")
     }
     func testCharLimits() throws {
         let app = XCUIApplication()
         app.launch()
         app.collectionViews.buttons.firstMatch.tap()
+        let initTextLength = app.textViews["DetailTextEditor"].value as? String
+        let count = initTextLength!.count
         let detailText = app.staticTexts["DetailText"]
-        //        XCTAssertEqual(detailText.label, "0/150")
+                XCTAssertEqual(detailText.label, "\(count)/150")
         
         let detailTextEditor = app.textViews["DetailTextEditor"]
         detailTextEditor.tap()
@@ -56,7 +60,6 @@ final class Lab1_2023UITests: XCTestCase {
         keyH.tap()
         keyE.tap()
         
-        //        XCTAssertEqual(detailText.label, "2/150")
         var manyY = ""
         for _ in 0...450{
             manyY += "y"
@@ -71,7 +74,7 @@ final class Lab1_2023UITests: XCTestCase {
         let detailText = app.staticTexts["DetailText"]
         let settingsToggle = app.buttons["NavigationButton"]
         let detailTextEditor = app.textViews["DetailTextEditor"]
-        let back = app.buttons["Back"]
+        let back = app.buttons["Inventory"]
         //        app.collectionViews.buttons.firstMatch.tap()
         
         app.launch()
@@ -84,13 +87,15 @@ final class Lab1_2023UITests: XCTestCase {
         app.steppers["MaxCountStepper"].buttons["Decrement"].tap()
         settingsToggle.tap()
         app.collectionViews.buttons.firstMatch.tap()
-        XCTAssertEqual(detailText.label, "4/10")
+        let initTextLength = app.textViews["DetailTextEditor"].value as? String
+        let count = initTextLength!.count
+        XCTAssertEqual(detailText.label, "\(count)/10")
         
         //relaunch app to verify changes remained
         app.terminate()
         app.launch()
         app.collectionViews.buttons.firstMatch.tap()
-        XCTAssertEqual(detailText.label, "4/10")
+        XCTAssertEqual(detailText.label, "\(count)/10")
         
         //test new character limit is in effect
         detailTextEditor.tap()
@@ -122,7 +127,7 @@ final class Lab1_2023UITests: XCTestCase {
     func testFavourites(){
         let app = XCUIApplication()
         let favouriteToggle = app.switches["FavouriteToggle"]
-        let back = app.buttons["Back"]
+        let back = app.buttons["Inventory"]
         let secondEntry = app.collectionViews.buttons.element(boundBy: 1)
         let thirdEntry = app.collectionViews.buttons.element(boundBy: 2)
         app.launch()
@@ -144,6 +149,15 @@ final class Lab1_2023UITests: XCTestCase {
         secondEntry.tap()
         XCTAssertEqual(favouriteToggle.value as? String, "0")
         back.tap()
+    }
+    func testAdditionalItems(){
+        let app = XCUIApplication()
+        let add = app.navigationBars["Inventory"].buttons["PlusButton"]
+        app.launch()
+
+        XCTAssertEqual(app.collectionViews.buttons.count, 3)
+        add.tap()
+        XCTAssertEqual(app.collectionViews.buttons.count, 4)
         
     }
 }
