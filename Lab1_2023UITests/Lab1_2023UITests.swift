@@ -225,6 +225,11 @@ final class Lab1_2023UITests: XCTestCase {
     func testDeleteItem(){
         let app = XCUIApplication()
         app.launch()
+       
+        let add = app.navigationBars["Inventory"].buttons["PlusButton"]
+        while(app.collectionViews.buttons.count < 2){
+            add.tap()
+        }
         let initCollectionCount = app.collectionViews.buttons.count
         app.collectionViews.buttons.firstMatch.swipeLeft(velocity: .slow)
 
@@ -252,13 +257,20 @@ final class Lab1_2023UITests: XCTestCase {
             add.tap()
         }
         let firstEntry = app.collectionViews.buttons.firstMatch
-        let secondEntry = app.collectionViews.buttons.element(boundBy: 1)
         
         firstEntry.tap()
         favouriteToggle.tap()
         XCTAssertEqual(favouriteToggle.value as? String, "1") // 1 == enabled
+        //Edit description
+        let detailTextEditor = app.textViews["DetailTextEditor"]
+        detailTextEditor.tap()
+        let keyH = app.keys["H"]
+        let keyE = app.keys["e"]
+        keyH.tap()
+        keyE.tap()
+        
         back.tap()
-
+        
         XCUIDevice.shared.press(.home)
         sleep(1)
         app.terminate()
