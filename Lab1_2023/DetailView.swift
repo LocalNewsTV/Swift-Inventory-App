@@ -12,36 +12,62 @@ struct DetailView: View {
     var charLimit: Int
     @State var pickerVisible = false
     @State var showCameraAlert = false
+    @State var showLibraryAlert = false
     @State var imageSource = UIImagePickerController.SourceType.camera
     @Binding var inventoryItem: InventoryItem
     var body: some View {
         //        let defaultColor = Color.white
-        VStack {
-            Image(systemName: inventoryItem.image)
-                .resizable(resizingMode: .stretch)
-                .imageScale(.large)
-                .foregroundColor(.purple) //originally .accentColor
-                .background(inventoryItem.fave ? colour : Color.white)
-                .accessibilityIdentifier("DetailImage")
-            Toggle(isOn: $inventoryItem.fave) {
-                Text("Favourite")
-            }
-            .accessibilityIdentifier("FavouriteToggle")
-            TextEditor(text: Binding(
-                get: {
-                    inventoryItem.description
-                },
-                set: {
-                    newValue in
-                    if newValue.count <= charLimit {
-                        inventoryItem.description = newValue
-                    }
+        
+        ZStack {
+            VStack {
+                Image(uiImage: inventoryItem.image)
+                    .resizable(resizingMode: .stretch)
+                    .imageScale(.medium)
+                    .scaledToFit()
+                    .foregroundColor(.purple) //originally .accentColor
+                    .border(inventoryItem.fave ? colour : Color.white)
+                    .accessibilityIdentifier("DetailImage")
+                    .gesture(TapGesture(count: 1).onEnded({
+                    value in
+                    PHPhotoLibrary.requestAuthorization({ status in
+                        if status == .authorized {
+                            self.showLibraryAlert = false
+                            self.imageSource = UIImagePickerController.SourceType.photoLibrary
+                            self.pickerVisible.toggle()
+                        } else {
+                            self.showLibraryAlert = true
+                        }
+                    })
+                }))
+                Toggle(isOn: $inventoryItem.fave) {
+                    Text("Favourite")
                 }
-            )
-            )
-            .accessibilityIdentifier("DetailTextEditor")
-            Text(String("\(inventoryItem.description.count)/\(charLimit)"))
-                .accessibilityIdentifier("DetailText")
+                .accessibilityIdentifier("FavouriteToggle")
+                TextEditor(text: Binding(
+                    get: {
+                        inventoryItem.description
+                    },
+                    set: {
+                        newValue in
+                        if newValue.count <= charLimit {
+                            inventoryItem.description = newValue
+                        }
+                    }
+                )
+                )
+                .accessibilityIdentifier("DetailTextEditor")
+                Text(String("\(inventoryItem.description.count)/\(charLimit)"))
+                    .accessibilityIdentifier("DetailText")
+            }
+            if pickerVisible {
+                ImageView(pickerVisible: $pickerVisible, sourceType: $imageSource, action: { (value) in
+                    if let image = value {
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()) {
+                            self.inventoryItem.image = image
+                        }
+                    }
+                })
+            }
         }
         .padding()
         .navigationBarItems(trailing:
@@ -57,6 +83,7 @@ struct DetailView: View {
             }
         }) {
             Image(systemName: "camera")
+
         }
             .alert(isPresented: $showCameraAlert) {
                 Alert(title: Text("Error"), message: Text("Camera not available"), dismissButton: .default(Text("OK")))
